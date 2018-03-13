@@ -4,7 +4,7 @@
  */
  
 $databaseHost = 'localhost';
-$databaseName = 'icha';
+$databaseName = 'crud_db';
 $databaseUsername = 'icha';
 $databasePassword = 'icha';
  
