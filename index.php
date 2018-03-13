@@ -538,7 +538,7 @@
     <div class="row">
         <div class="col-md-3 col-sm-3"></div>
       <div class="col-md-6 center-block col-sm-6 ">
-        <form id="mc-form" action="sendmail.php" method="POST">
+        <form id="mc-form" action="subscribe/register.php" method="POST">
           <div class="input-group">
             <input type="email" class="form-control" placeholder="Email Address" required id="mc-email">
             <span class="input-group-btn">
