@@ -14,12 +14,16 @@
 				<td><input type="text" name="name"></td>
 			</tr>
 			<tr> 
-				<td>Email</td>
-				<td><input type="text" name="email"></td>
+				<td>Title</td>
+				<td><input type="text" name="title"></td>
 			</tr>
 			<tr> 
-				<td>Comments</td>
-				<td><input type="text" name="comments"></td>
+				<td>Comment</td>
+				<td><textarea rows="2" cols="50" name="comment"></textarea></td>
+			</tr>
+			<tr> 
+				<td>Foto</td>
+				<td><input type="text" name="foto"></td>
 			</tr>
 			<tr> 
 				<td></td>
@@ -30,20 +34,21 @@
 	
 	<?php
  
-	// Check If form submitted, insert form data into users table.
+	// Check If form submitted, insert form data into comment table.
 	if(isset($_POST['Submit'])) {
 		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$comments = $_POST['comments'];
+		$title = $_POST['title'];
+		$comment = $_POST['comment'];
+		$foto = $_POST['foto'];
 		
 		// include database connection file
 		include_once("../conf/config.php");
 				
-		// Insert user data into table
-		$result = mysqli_query($mysqli, "INSERT INTO comments(name,email,comments) VALUES('$name','$email','$comments')");
+		// Insert comment data into table
+		$result = mysqli_query($mysqli, "INSERT INTO comments(name,title,comment,foto) VALUES('$name','$title','$comment','$foto')");
 		
-		// Show message when user added
-		echo "Comments added successfully. <a href='index.php'>View Comments</a>";
+		// Show message when comment added
+		echo "Comment added successfully. <a href='index.php'>View Comments</a>";
 	}
 	?>
 </body>

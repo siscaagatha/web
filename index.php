@@ -396,45 +396,26 @@
                 
                     <div class="col-md-8 col-md-offset-2 grey">
                         <div id="testimonial" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/wiranto.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">"Kegiatan siber nasional terutama pengamanan siber ini merupakan keharusan, keniscayaan.."</h5>
-                                <p><strong>Wiranto</strong>, Menko Polhukam.</p>
-                            </div>
 
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/mccarthy.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">"Suatu hari nanti komputasi akan menjadi infrastruktur publik seperti listrik dan telepon."</h5>
-                                <p><strong>John McCarthy</strong>, Pakar Komputasi MIT.</p>
-                            </div>
+                            <?php
+                            // Create database connection using config file
+                            include_once("conf/config.php");
+                             
+                            // Fetch all comments data from database
+                            $result = mysqli_query($mysqli, "SELECT * FROM comments ORDER BY id DESC");
+                            ?>
 
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/rudiantama.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">Smart City menciptakan perubahan sistem lebih efektif dan efisien dalam lembaga pemerintahan.</h5>
-                                <p><strong>Rudiantara</strong>, Menkominfo.</p>
-                            </div>
-
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/billgates.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">Jika kita tidak memecahkan masalah keamanan, maka orang-orang akan ragu.</h5>
-                                <p><strong>Bill Gates</strong>, Microsoft.</p>
-                            </div>
-
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/darwin.jpg" /s>
-                                </div>
-                                <h5 style="color: #fff">Sistem yang terintegrasi dalam suatu perusahaan dapat meningkatkan penghematan atau efisiensi.</h5>
-                                <p><strong>Darwin Widjaja</strong>, Praktisi Teknologi Informasi.</p>
-                            </div>
+                            <?php  
+                            while($user_data = mysqli_fetch_array($result)) {         
+                                echo "<div class='item'>";
+                                echo "<div class='gambar-testimoni'>";
+                                echo "<img src=".$user_data['foto']."></images>";
+                                echo "</div>";
+                                echo "<h5 style='color: #fff'>".$user_data['comment']."</h5>";
+                                echo "<p><strong>".$user_data['name']."</strong>, ".$user_data['title'].".</p>";
+                                echo "</div>";        
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -540,7 +521,7 @@
       <div class="col-md-6 center-block col-sm-6 ">
         <form id="mc-form" action="subscribe/register.php" method="POST">
           <div class="input-group">
-            <input type="email" class="form-control" placeholder="Email Address" required id="mc-email">
+            <input type="email" class="form-control" placeholder="Email Address" required id="mc-email" name="email">
             <span class="input-group-btn">
             <button type="submit" class="btn btn-default">SUBSCRIBE <i class="fa fa-envelope"></i> </button>
             </span> </div>
