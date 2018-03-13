@@ -119,7 +119,7 @@ VERSION : 1.1
 		e.preventDefault();		
 		$.ajax({
 			type: 'POST',
-			url : 'php/sendmail.php',
+			url : 'subscribe/register.php',
 			data: form.serialize(),
 			success: function(data){
 				form.find('.form-message').html(data).fadeIn();
