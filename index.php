@@ -1,644 +1,315 @@
-<!DOCTYPE html>
+<?php
+/**
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
+ *
+ * This content is released under the MIT License (MIT)
+ *
+ * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (https://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2018, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	https://codeigniter.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
 
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Teknologi Informasi ITS</title>
-	
-	<!-- [ FONT-AWESOME ICON ] 
-        =========================================================================================================================-->
-	<link rel="stylesheet" type="text/css" href="library/font-awesome-4.3.0/css/font-awesome.min.css">
+/*
+ *---------------------------------------------------------------
+ * APPLICATION ENVIRONMENT
+ *---------------------------------------------------------------
+ *
+ * You can load different configurations depending on your
+ * current environment. Setting the environment also influences
+ * things like logging and error reporting.
+ *
+ * This can be set to anything, but default usage is:
+ *
+ *     development
+ *     testing
+ *     production
+ *
+ * NOTE: If you change these, also change the error_reporting() code below
+ */
+	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
-	<!-- [ PLUGIN STYLESHEET ]
-        =========================================================================================================================-->
-	<link rel="shortcut icon" type="image/x-icon" href="images/icon.png">
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
-	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-        <link rel="stylesheet" type="text/css" href="css/owl.theme.css">
-	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
-	<!-- [ Boot STYLESHEET ]
-        =========================================================================================================================-->
-	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" type="text/css" href="library/bootstrap/css/bootstrap.css">
-        <!-- [ DEFAULT STYLESHEET ] 
-        =========================================================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/responsive.css">
-	<link rel="stylesheet" type="text/css" href="css/color/sisca.css">
-        
-</head>
-<body >
-<!-- [ LOADERs ]
-================================================================================================================================-->	
-    <div class="preloader">
-    <div class="loader theme_background_color">
-        <span></span>
-      
-    </div>
-</div>
-<!-- [ /PRELOADER ]
-=============================================================================================================================-->
-<!-- [WRAPPER ]
-=============================================================================================================================-->
-<div class="wrapper">
-  <!-- [NAV]
- ============================================================================================================================-->    
-   <!-- Navigation
-    ==========================================-->
-    <nav  class=" nim-menu navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-            <!-- <a class="navbar-brand" href="index.html">N<span class="themecolor">i</span>M</a> -->
-        </div>
+/*
+ *---------------------------------------------------------------
+ * ERROR REPORTING
+ *---------------------------------------------------------------
+ *
+ * Different environments will require different levels of error reporting.
+ * By default development will show errors but testing and live will hide them.
+ */
+switch (ENVIRONMENT)
+{
+	case 'development':
+		error_reporting(-1);
+		ini_set('display_errors', 1);
+	break;
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home" class="page-scroll">Home</a></li>
-            <li><a href="#one" class="page-scroll">About</a></li>
-            <li><a href="#two" class="page-scroll">Facilities</a></li>
-            <li><a href="#three" class="page-scroll">Job Opportunity</a></li>
-            <li><a href="#three1" class="page-scroll">Vision&Mission</a></li>
-            <li><a href="#four" class="page-scroll">Inspiration</a></li>
-            <li><a href="#six" class="page-scroll">Testimonials</a></li>
-             <li><a href="#seven" class="page-scroll">Profile of Graduates</a></li>
-            <li><a href="#eight" class="page-scroll">Contact</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+	case 'testing':
+	case 'production':
+		ini_set('display_errors', 0);
+		if (version_compare(PHP_VERSION, '5.3', '>='))
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+		}
+		else
+		{
+			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
+		}
+	break;
 
+	default:
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'The application environment is not set correctly.';
+		exit(1); // EXIT_ERROR
+}
 
-   <!-- [/NAV]
- ============================================================================================================================--> 
-    
-   <!-- [/MAIN-HEADING]
- ============================================================================================================================--> 
-   <section class="main-heading" id="home">
-       <div class="overlay">
-           <div class="container">
-               <div class="row">
-                   <div class="main-heading-content col-md-12 col-sm-12 text-center">
-        <h1 class="main-heading-title">We are<span class="main-element themecolor" data-elements=" Information Technology, FTIK, ITS"></span></h1>
-        <p class="main-heading-text">Welcome To Our Websites and Have a Nice Day!</p>
-        <div class="btn-bar">
-          <a href="#one" class="page-scroll btn btn-custom theme_background_color">VIVAT!</a>
-          <a href="#eight" class="page-scroll btn btn-custom-outline">Contact Us</a>
-        </div>
-      </div>
-               </div>
-           </div>
-       </div>  
-      
-   </section>
-    
- <!-- [/MAIN-HEADING]
- ============================================================================================================================-->
- 
- 
- <!-- [ABOUT US]
- ============================================================================================================================-->
- <section class="aboutus white-background black" id="one">
-     <div class="container">
-         <div class="row">
-             <div class="col-md-12 text-center black">
-                 <h3 class="title">ABOUT <span class="themecolor">US</span></h3>
-            <p class="a-slog">Departemen Teknologi Informasi adalah Departemen Terbaru di Institut Teknologi Sepuluh Nopember Surabaya. Selesksi Masuk Tahun Akademik 2018/ 2019 </p> 
-             </div>
-         </div>
-         <div class="gap">
-             
-         </div>
-         
-         <div class="row about-box">
-          <div class="col-sm-4 text-center">
-            <div class="margin-bottom">
-              <i class="fa fa-envelope"></i>
-              <h4>SNMPTN</h4>
-              <p class="black"><a href="https://smits.its.ac.id/sarjana/#snmptn">smits.its.ac.id</a> </p>
-            </div> <!-- / margin -->
-          </div> <!-- /col -->
-          <div class="col-sm-4 about-line text-center">
-            <div class="margin-bottom">
-              <i class="fa fa-edit"></i>
-              <h4>SBMPTN</h4>
-              <p class="black"><a href="https://smits.its.ac.id/sarjana/#sbmptn">smits.its.ac.id</a> </p>
-            </div> <!-- / margin -->
-          </div><!-- /col -->
-          <div class="col-sm-4 text-center">
-            <div class="margin-bottom">
-              <i class="fa fa-newspaper-o"></i>
-              <h4>PKM</h4>
-              <p class="black"><a href="https://smits.its.ac.id/sarjana/#pkm">smits.its.ac.id</a> </p>
-            </div> <!-- / margin -->
-          </div><!-- /col -->
-        </div> <!-- /row -->
-     </div>
- </section>
- 
- 
- <!-- [/ABOUTUS]
- ============================================================================================================================-->
- 
- 
- 
- <!-- [FACILITIES]
- ============================================================================================================================-->
-     <section class="recent-works text-center" id="two">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-              <h3 class="title">Our <span class="themecolor">Facilities</span></h3>
-            <p class="a-slog">Beberapa fasilitas yang dimiliki Departemen Teknologi Informasi</p>
-          </div> 
-        </div>
-          
-          <div class="gap"></div>
+/*
+ *---------------------------------------------------------------
+ * SYSTEM DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * This variable must contain the name of your "system" directory.
+ * Set the path if it is not in the same directory as this file.
+ */
+	$system_path = 'system';
 
-        <div class="row">
-          <div class="col-sm-4 port-item margin-bottom">
-            <div class="item-img-wrap">
-              <img src="images/f1.jpg" class="img-responsive" alt="workimg">
-              <div class="item-img-overlay">
-                <a href="images/f1.jpg" class="show-image">
-                  <span></span>
-                </a>
-              </div>
-            </div>
-            <div class="work-desc">
-              <h3><a href="#">Laboratorium</a></h3>
-              <span>2 Laboratorium Komputer (Lab.Keamanan Siber dan Lab.Teknologi Smart City). Seluruh komputer telah dilengkapi oleh perangkat lunak yang dapat digunakan untuk mendukung kegiatan praktikum maupun kegiatan akademik.</span>
-            </div>
-          </div> <!-- /portfolio-item -->
+/*
+ *---------------------------------------------------------------
+ * APPLICATION DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want this front controller to use a different "application"
+ * directory than the default one you can set its name here. The directory
+ * can also be renamed or relocated anywhere on your server. If you do,
+ * use an absolute (full) server path.
+ * For more info please see the user guide:
+ *
+ * https://codeigniter.com/user_guide/general/managing_apps.html
+ *
+ * NO TRAILING SLASH!
+ */
+	$application_folder = 'application';
 
-          <div class="col-sm-4 port-item margin-bottom">
-            <div class="item-img-wrap">
-              <img src="images/f2.jpg" class="img-responsive" alt="workimg">
-              <div class="item-img-overlay">
-                <a href="images/f2.jpg" class="show-image">
-                  <span></span>
-                </a>
-              </div>
-            </div>
-            <div class="work-desc">
-              <h3><a href="#">Ruang Baca</a></h3>
-              <span>Memiliki berbagai macam koleksi mulai dari fiksi hingga materi perkuliahan, dari bahan cetak hingga koleksi digital. Selain itu menyediakan publikasi serial harian dan bulanan seperti surat kabar dan majalah.</span>
-            </div>
-          </div> <!-- /portfolio-item -->
-
-          <div class="col-sm-4 port-item margin-bottom" >
-            <div class="item-img-wrap">
-              <img src="images/f3.jpg" class="img-responsive" alt="workimg">
-              <div class="item-img-overlay">
-                <a href="images/f3.jpg" class="show-image">
-                  <span></span>
-                </a>
-              </div>
-            </div>
-            <div class="work-desc">
-              <h3><a href="#">Ruang Kelas</a></h3>
-              <span>Ruangan dilengkapi pendingin ruangan dan LCD serta akses internet gratis yang mendukung kegiatan akademis mahasiswa.</span>
-            </div>
-          </div> <!-- /portfolio-item -->
-        </div> <!-- /row -->
-
-      </div> <!-- /container -->
-    </section>
-    <!-- / Portfolio -->
- 
- 
- <!-- [/OUR-RECENT WORKS]
- ============================================================================================================================-->
- 
-  <!-- [OUR TEAM]
- ============================================================================================================================-->
-  <section class="our-team white-background black" id="three">
-      <div class="container">
-       <div class="row text-center">
-          <div class="col-md-12">
-              <h3 class="title">Job <span class="themecolor">Opportunity</span></h3>
-            <p class="a-slog">Berikut adalah jenis-jenis peluang kerja dari Departemen Teknologi Informasi</p>
-          </div> 
-        </div>
-          <div class="row text-center">
-          <div class="col-sm-4" style="margin-top: 5%">
-             <i class="fa fa-cloud" style="font-size:72px"></i>
-            <h4>Cloud and Distributed Computing</h4>
-            <h5>Komputasi Awan dan Komputasi Terdistribusi</h5>
-            
-          </div> <!-- team-member -->
-
-          <div class="col-sm-4" style="margin-top: 5%">
-            <i class="fa fa-code" style="font-size:72px"></i>
-            <h4>Web Architecture and Development Framework</h4>
-            <h5>Arsitektur Web dan Pengembangan Framework</h5>
-            
-          </div> <!-- team-member -->
-
-          <div class="col-sm-4" style="margin-top: 5%">
-            <i class="fa fa-laptop" style="font-size:72px"></i>
-            <h4>Middleware and Integration Software</h4>
-            <h5>Integrasi Perangkat Lunak dan Middleware</h5>
-            
-          </div> <!-- team-member -->
-
-          <div class="col-sm-4" style="margin-top: 5%">
-           <i class="fa fa-desktop" style="font-size:72px"></i>
-            <h4>User Interface Design</h4>
-            <h5>Rancangan Antarmuka Pengguna</h5>
-            
-          </div> <!-- team-member -->
-
-          <div class="col-sm-4" style="margin-top: 5%">
-            <i class="fa fa-lock" style="font-size:72px"></i>
-            <h4>Network and Information Security</h4>
-            <h5>Keamanan Informasi dan Jaringan</h5>
-            
-          </div> <!-- team-member -->
-
-          <div class="col-sm-4" style="margin-top: 5%">
-            <i class="fa fa-database" style="font-size:72px"></i>
-            <h4>Storage Systems and Management</h4>
-            <h5>Manajemen Penyimpanan Data</h5>
-            
-          </div> <!-- team-member -->
+/*
+ *---------------------------------------------------------------
+ * VIEW DIRECTORY NAME
+ *---------------------------------------------------------------
+ *
+ * If you want to move the view directory out of the application
+ * directory, set the path to it here. The directory can be renamed
+ * and relocated anywhere on your server. If blank, it will default
+ * to the standard location inside your application directory.
+ * If you do move this, use an absolute (full) server path.
+ *
+ * NO TRAILING SLASH!
+ */
+	$view_folder = '';
 
 
-        </div> <!-- end row -->
-          
-      </div>
-  </section>
- 
- <!-- [/OUR TEAM]
- ============================================================================================================================-->
+/*
+ * --------------------------------------------------------------------
+ * DEFAULT CONTROLLER
+ * --------------------------------------------------------------------
+ *
+ * Normally you will set your default controller in the routes.php file.
+ * You can, however, force a custom routing by hard-coding a
+ * specific controller class/function here. For most applications, you
+ * WILL NOT set your routing here, but it's an option for those
+ * special instances where you might want to override the standard
+ * routing in a specific front controller that shares a common CI installation.
+ *
+ * IMPORTANT: If you set the routing here, NO OTHER controller will be
+ * callable. In essence, this preference limits your application to ONE
+ * specific controller. Leave the function name blank if you need
+ * to call functions dynamically via the URI.
+ *
+ * Un-comment the $routing array below to use this feature
+ */
+	// The directory name, relative to the "controllers" directory.  Leave blank
+	// if your controller is not in a sub-directory within the "controllers" one
+	// $routing['directory'] = '';
 
- 
- <!-- [FACILITIES]
- ============================================================================================================================-->
-     <section class="recent-works text-center" id="three1">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-              <h3 class="title">Our <span class="themecolor">VISION & MISSION</span></h3>
-            <p class="a-slog">Berikut adalah visi dan misi dari Departemen Teknologi Informasi</p>
-          </div> 
-        </div>
-          
-          <div class="gap"></div>
+	// The controller class file name.  Example:  mycontroller
+	// $routing['controller'] = '';
 
-        <div class="row">
-          <div class="col-sm-6 port-item margin-bottom">
-            <div class="item-img-wrap">
-              
-              <div class="item-img-overlay">
-               
-                  <span></span>
-                </a>
-              </div>
-            </div>
-            <div class="work-desc">
-              <h3><a href="#">VISI</a></h3>
-              <span>Menjadi Program Studi Teknologi Informasi yang unggul di dalam bidang keamanan siber dan Teknologi berbasis internet (IoT) untuk mendukung pembangunan Smart City secara berkelanjutan hingga tahun 2022.</span>
-            </div>
-          </div> <!-- /portfolio-item -->
-
-          <div class="col-sm-6 port-item margin-bottom">
-            <div class="item-img-wrap">
-              <div class="item-img-overlay">
-               
-                  <span></span>
-                </a>
-              </div>
-            </div>
-            <div class="work-desc" style="text-align: left; padding-left: 5%">
-              <h3 style="text-align: center;"><a>MISI</a></h3>
-              <ol>
-              <li><span>Menyelenggarakan pendidikan dan pengajaran Teknologi Informasi dengan menggunakan kurikulum yang adaptif, berorientasi ke masa depan dan didukung SDM yang berkualitas serta fasilitas yang memadai.</span></li>
-              <li><span>Melaksanakan penelitian yang bermutu di bidang Keamanan Siber dan Internet of Things untuk teknologi Smart City.</span></li>
-              <li><span>Menjalin kemitraan dan instansi dalam maupun luar negeri.</span></li>
-              <li><span>Menyelenggarakan pengabdian kepada masyarakat berupa pelatihan, penyuluhan, penerapan hasil penelitian untuk pengembangan potensi dan pemberdayaan masyarakat daerah.</span></li>
-              </ol>
-            </div>
-          </div> <!-- /portfolio-item -->
-      </div> <!-- /container -->
-    </section>
-    <!-- / Portfolio -->
- 
- 
- <!-- [/OUR-RECENT WORKS]
- ============================================================================================================================-->
- 
- 
- <!-- [INSPIRATION]
- ============================================================================================================================-->
- <section class="aboutus white-background black" id="four">
-     <div class="container">
-         <div class="row">
-             <div class="col-md-12 text-center black">
-                 <h3 class="title">WHY<span class="themecolor"> INFORMATION TECHNOLOGY ?</span></h3>
-             </div>
-         </div>
-         <div class="gap">
-             
-         </div>
-         
-         <div class="row about-box">
-          <div class="col-sm-3 text-center">
-            <div class="margin-bottom">
-              <p class="black"> Saat ini banyak terdapat hacker di dunia siber, oleh karena itu diperlukan ahli keamanan siber dan aplikasi untuk mengurangi penipuan (fraud).</p>
-            </div> <!-- / margin -->
-          </div> <!-- /col -->
-          <div class="col-sm-3 about-line text-center">
-            <div class="margin-bottom">
-              <p class="black"> Program Studi Teknologi Informasi dapat mencetak lulusan yang mempunyai keahlian di bidang layanan awan, yang berkontribusi dalam meningkatkan kuantitas dan kualitas SDM, sehingga dapat meningkatkan efisiensi operasional organisasi</p>
-            </div> <!-- / margin -->
-          </div><!-- /col -->
-          <div class="col-sm-3 about-line text-center">
-            <div class="margin-bottom">
-              <p class="black"> Memiliki kemampuan untuk menghasilkan SDM yang ahli dalam bidang integrasi sistem sebagai solusi untuk mendukung penanganan aplikasi-aplikasi di instansi pemerintahan (E-Gov).</p>
-            </div> <!-- / margin -->
-          </div><!-- /col -->
-          <div class="col-sm-3 text-center">
-            <div class="margin-bottom">
-              <p class="black"> Memfasilitasi otomatisasi proses bisnis di organisasi untuk menghadapi perkembangan teknologi internet yang pesat dalam rangka mendukung perkembangan Teknologi Smart City.</p>
-            </div> <!-- / margin -->
-          </div><!-- /col -->
-        </div> <!-- /row -->
-         
-         
-         
-     </div>
- </section>
- 
- <!-- [/INSPIRATION]
- ============================================================================================================================--> 
- 
- 
- 
- <!-- [TESTIMONIAL]
- ============================================================================================================================-->
- <section class="client-testimonial text-center white" id="six">
-  
-            <div class="container">
-                <div class="row">
-                <div class="col-md-12">
-                    <h3 class="title">Apa Kata <span class="themecolor">Mereka ?</span></h3>            
-          </div> 
-                
-                    <div class="col-md-8 col-md-offset-2 grey">
-                        <div id="testimonial" class="owl-carousel owl-theme">
-
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/wiranto.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">"Kegiatan siber nasional terutama pengamanan siber ini merupakan keharusan, keniscayaan.."</h5>
-                                <p><strong>Wiranto</strong>, Menko Polhukam.</p>
-                            </div>
-
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/mccarthy.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">"Suatu hari nanti komputasi akan menjadi infrastruktur publik seperti listrik dan telepon."</h5>
-                                <p><strong>John McCarthy</strong>, Pakar Komputasi MIT.</p>
-                            </div>
-
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/rudiantama.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">Smart City menciptakan perubahan sistem lebih efektif dan efisien dalam lembaga pemerintahan.</h5>
-                                <p><strong>Rudiantara</strong>, Menkominfo.</p>
-                            </div>
-
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/billgates.jpg"/>
-                                </div>
-                                <h5 style="color: #fff">Jika kita tidak memecahkan masalah keamanan, maka orang-orang akan ragu.</h5>
-                                <p><strong>Bill Gates</strong>, Microsoft.</p>
-                            </div>
-
-                            <div class="item">
-                                <div class="gambar-testimoni">
-                                  <img src="images/darwin.jpg" /s>
-                                </div>
-                                <h5 style="color: #fff">Sistem yang terintegrasi dalam suatu perusahaan dapat meningkatkan penghematan atau efisiensi.</h5>
-                                <p><strong>Darwin Widjaja</strong>, Praktisi Teknologi Informasi.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-     
-     
- </section> 
- 
- <!-- [/TESTIMONIAL]
- ============================================================================================================================-->
- 
- <!-- [/SERVICES]
- ============================================================================================================================-->
- 
- 
- <section class="services white-background black" id="seven">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-12">
-              <h3 class="title">Profile <span class="themecolor">Of Graduates</span></h3>
-            <p class="a-slog">Berikut adalah profil-profil dari lulusan Departemen Teknologi Informasi</p>
-          </div> <!-- /col -->
-        </div> <!-- /row -->
-        <div class="gap"></div>
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-lock"></i>
-              <div class="nim-service-detail">
-                <h4>Cyber Security Specialist</h4>
-                <p>Spesialis Keamanan Siber</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-code"></i>
-              <div class="nim-service-detail">
-                <h4>IoT Specialist</h4>
-                <p>Spesialis Internet Of Things</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-key"></i>
-              <div class="nim-service-detail">
-                <h4>Application Security Analist</h4>
-                <p>Analis Keamanan Aplikasi</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->       
-        </div> <!-- end row -->
-
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-cloud"></i>
-              <div class="nim-service-detail">
-                <h4>Cloud Service Developer</h4>
-                <p>Pengembangan Layanan Awan</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          <div class="col-sm-4">
-            <div class="nim-service margin-bottom">
-              <i class="fa fa-link"></i>
-              <div class="nim-service-detail">
-                <h4>System Integration Specialist</h4>
-                <p>Spesialis Integrasi Sistem</p>
-              </div> <!-- /nim-service-detail -->
-            </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->
-
-          
-        </div> <!-- end row -->
-
-      </div>  <!-- container -->
-    </section>
- 
- 
- <!-- [/SERVICES]
- ============================================================================================================================-->
- 
- 
- <!-- [CONTACT]
- ============================================================================================================================-->
- <!--sub-form-->
-<section class="sub-form text-center" id="eight">
-  <div class="container">
-    <div class="col-md-12">
-        <h3 class="title">Subscribe to our <span class="themecolor"> Websites</span></h3>
-            <p class="lead">Our Mail : teknologi.informasi@its.ac.id</p>
-            <p class="lead">Dapatkan informasi terbaru dari kami dengan cara SUBSCRIBE email kalian disini.</p>
-    </div> 
-    <div class="row">
-        <div class="col-md-3 col-sm-3"></div>
-      <div class="col-md-6 center-block col-sm-6 ">
-        <form id="mc-form" action="subscribe/register.php" method="POST">
-           <div class="input-group">
-            <input type="email" class="form-control" placeholder="Email Address" required id="mc-email" name="email">
-            <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">SUBSCRIBE <i class="fa fa-envelope"></i> </button>
-            </span> </div>
-            </div>
-        </form>
-    </div>
-  <div class="col-md-12">
-        <br><br><br><br><br>
-        <h3 class="title">Comment to our <span class="themecolor"> Websites</span></h3>
-            <p class="lead">Berikan kritik dan saran anda disini.</p>
-    </div> 
-      <div class="row">
-      <div class="col-md-3 col-sm-3"></div>
-      <div class="col-md-6 center-block col-sm-6 ">
-        <form id="mc-form" action="comment/submit.php" method="POST">
-            <input type="name" class="form-control" placeholder="Name" required id="mc-name" name="name">
-            <input type="title" class="form-control" placeholder="Title" required id="mc-title" name="title">
-            <input type="comment" class="form-control" placeholder="Comment" required id="mc-comment" name="comment">
-            <br>
-            <button type="submit" class="btn btn-default">COMMENT <i class="fa fa-envelope"></i> </button>
-            </div>
-        </form>
-
-      </div>
-    </div>
-  </div>
-</section>
-<!--sub-form end--> 
+	// The controller function you wish to be called.
+	// $routing['function']	= '';
 
 
- 
- <!-- [/CONTACT]
- ============================================================================================================================-->
- 
- 
- <!-- [FOOTER]
- ============================================================================================================================-->
- 
-<footer class="site-footer section-spacing text-center " id="eight">
-    
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <p class="footer-links"><a href="#">Terms of Use</a> <a href="#">Privacy Policy</a></p>
-      </div>
-      <div class="col-md-4"> <small>&copy; 2015 Nim. All rights reserved.</small></div>
-      <div class="col-md-4"> 
-        <!--social-->
-        
-        <ul class="social">
-          <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter "></i></a></li>
-          <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
-        </ul>
-        
-        <!--social end--> 
-        
-      </div>
-    </div>
-  </div>
-</footer>
-
- 
- 
- <!-- [/FOOTER]
- ============================================================================================================================-->
- 
- 
- 
-</div>
- 
-
-<!-- [ /WRAPPER ]
-=============================================================================================================================-->
-
-	<!-- [ DEFAULT SCRIPT ] -->
-	<script src="library/modernizr.custom.97074.js"></script>
-	<script src="library/jquery-1.11.3.min.js"></script>
-        <script src="library/bootstrap/js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>	
-	<!-- [ PLUGIN SCRIPT ] -->
-        <script src="library/vegas/vegas.min.js"></script>
-	<script src="js/plugins.js"></script>
-        <!-- [ TYPING SCRIPT ] -->
-         <script src="js/typed.js"></script>
-         <!-- [ COUNT SCRIPT ] -->
-         <script src="js/fappear.js"></script>
-       <script src="js/jquery.countTo.js"></script>
-	<!-- [ SLIDER SCRIPT ] -->  
-        <script src="js/owl.carousel.js"></script>
-         <script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="js/SmoothScroll.js"></script>
-        
-        <!-- [ COMMON SCRIPT ] -->
-	<script src="js/common.js"></script>
-  
-</body>
+/*
+ * -------------------------------------------------------------------
+ *  CUSTOM CONFIG VALUES
+ * -------------------------------------------------------------------
+ *
+ * The $assign_to_config array below will be passed dynamically to the
+ * config class when initialized. This allows you to set custom config
+ * items or override any default config values found in the config.php file.
+ * This can be handy as it permits you to share one application between
+ * multiple front controller files, with each file containing different
+ * config values.
+ *
+ * Un-comment the $assign_to_config array below to use this feature
+ */
+	// $assign_to_config['name_of_config_item'] = 'value of config item';
 
 
-</html>
+
+// --------------------------------------------------------------------
+// END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
+// --------------------------------------------------------------------
+
+/*
+ * ---------------------------------------------------------------
+ *  Resolve the system path for increased reliability
+ * ---------------------------------------------------------------
+ */
+
+	// Set the current directory correctly for CLI requests
+	if (defined('STDIN'))
+	{
+		chdir(dirname(__FILE__));
+	}
+
+	if (($_temp = realpath($system_path)) !== FALSE)
+	{
+		$system_path = $_temp.DIRECTORY_SEPARATOR;
+	}
+	else
+	{
+		// Ensure there's a trailing slash
+		$system_path = strtr(
+			rtrim($system_path, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		).DIRECTORY_SEPARATOR;
+	}
+
+	// Is the system path correct?
+	if ( ! is_dir($system_path))
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your system folder path does not appear to be set correctly. Please open the following file and correct this: '.pathinfo(__FILE__, PATHINFO_BASENAME);
+		exit(3); // EXIT_CONFIG
+	}
+
+/*
+ * -------------------------------------------------------------------
+ *  Now that we know the path, set the main path constants
+ * -------------------------------------------------------------------
+ */
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// Path to the system directory
+	define('BASEPATH', $system_path);
+
+	// Path to the front controller (this file) directory
+	define('FCPATH', dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+	// Name of the "system" directory
+	define('SYSDIR', basename(BASEPATH));
+
+	// The path to the "application" directory
+	if (is_dir($application_folder))
+	{
+		if (($_temp = realpath($application_folder)) !== FALSE)
+		{
+			$application_folder = $_temp;
+		}
+		else
+		{
+			$application_folder = strtr(
+				rtrim($application_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(BASEPATH.$application_folder.DIRECTORY_SEPARATOR))
+	{
+		$application_folder = BASEPATH.strtr(
+			trim($application_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your application folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('APPPATH', $application_folder.DIRECTORY_SEPARATOR);
+
+	// The path to the "views" directory
+	if ( ! isset($view_folder[0]) && is_dir(APPPATH.'views'.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.'views';
+	}
+	elseif (is_dir($view_folder))
+	{
+		if (($_temp = realpath($view_folder)) !== FALSE)
+		{
+			$view_folder = $_temp;
+		}
+		else
+		{
+			$view_folder = strtr(
+				rtrim($view_folder, '/\\'),
+				'/\\',
+				DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+			);
+		}
+	}
+	elseif (is_dir(APPPATH.$view_folder.DIRECTORY_SEPARATOR))
+	{
+		$view_folder = APPPATH.strtr(
+			trim($view_folder, '/\\'),
+			'/\\',
+			DIRECTORY_SEPARATOR.DIRECTORY_SEPARATOR
+		);
+	}
+	else
+	{
+		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
+		echo 'Your view folder path does not appear to be set correctly. Please open the following file and correct this: '.SELF;
+		exit(3); // EXIT_CONFIG
+	}
+
+	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
+
+/*
+ * --------------------------------------------------------------------
+ * LOAD THE BOOTSTRAP FILE
+ * --------------------------------------------------------------------
+ *
+ * And away we go...
+ */
+require_once BASEPATH.'core/CodeIgniter.php';
