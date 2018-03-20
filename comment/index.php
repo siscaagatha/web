@@ -3,7 +3,7 @@
 include_once("../conf/config.php");
  
 // Fetch all comments data from database
-$result = mysqli_query($mysqli, "SELECT * FROM comments ORDER BY id DESC");
+$result = mysqli_query($mysqli, "SELECT * FROM comment ORDER BY id DESC");
 ?>
  
 <html>
@@ -12,20 +12,19 @@ $result = mysqli_query($mysqli, "SELECT * FROM comments ORDER BY id DESC");
 </head>
  
 <body>
-<a href="add.php">Add New Comments</a><br/><br/>
+<a href="add.php">Add New Comment</a><br/><br/>
  
     <table width='80%' border=1>
  
     <tr>
-        <th>Name</th> <th>Title</th> <th>Comments</th> <th>Foto</th> <th>Action</th>
+        <th>Name</th> <th>Title</th> <th>Comment</th> <th>Action</th>
     </tr>
     <?php  
     while($user_data = mysqli_fetch_array($result)) {         
         echo "<tr>";
         echo "<td>".$user_data['name']."</td>";
         echo "<td>".$user_data['title']."</td>";
-        echo "<td>".$user_data['comment']."</td>"; 
-        echo "<td>".$user_data['foto']."</td>";    
+        echo "<td>".$user_data['comment']."</td>";  
         echo "<td><a href='edit.php?id=$user_data[id]'>Edit</a> | <a href='delete.php?id=$user_data[id]'>Delete</a></td></tr>";        
     }
     ?>

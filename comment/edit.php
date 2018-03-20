@@ -10,10 +10,9 @@ if(isset($_POST['update']))
 	$name=$_POST['name'];	
 	$title=$_POST['title'];
 	$comment=$_POST['comment'];
-	$foto=$_POST['foto'];
 		
 	// update comment data
-	$result = mysqli_query($mysqli, "UPDATE comments SET name='$name',title='$title',comment='$comment',foto='$foto' WHERE id=$id");
+	$result = mysqli_query($mysqli, "UPDATE comments SET name='$name',title='$title',comment='$comment' WHERE id=$id");
 	
 	// Redirect to homepage to display updated comment in list
 	header("Location: index.php");
@@ -32,7 +31,6 @@ while($comment_data = mysqli_fetch_array($result))
 	$name = $comment_data['name'];
 	$title = $comment_data['title'];
 	$comment = $comment_data['comment'];
-	$foto = $comment_data['foto'];
 }
 ?>
 <html>
@@ -57,10 +55,6 @@ while($comment_data = mysqli_fetch_array($result))
 			<tr> 
 				<td>Comment</td>			
 				<td><textarea rows="2" cols="50" name="comment"><?php echo $comment;?></textarea></td>
-			</tr>
-			<tr> 
-				<td>Foto</td>
-				<td><input type="text" name="foto" value=<?php echo $foto;?>></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>

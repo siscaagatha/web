@@ -30,7 +30,7 @@
 		include_once("../conf/config.php");
 				
 		// Insert comment data into table
-		$result = mysqli_query($mysqli, "INSERT INTO subscribe(name,email) VALUES('$name','$email')");
+		$result = mysqli_query($mysqli, "INSERT INTO subscribe(email) VALUES('$email')");
 		
 		// Show message when comment added
 		echo "Subscribe added successfully. <a href='index.php'>View Subscribe</a>";

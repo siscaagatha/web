@@ -22,10 +22,6 @@
 				<td><textarea rows="2" cols="50" name="comment"></textarea></td>
 			</tr>
 			<tr> 
-				<td>Foto</td>
-				<td><input type="text" name="foto"></td>
-			</tr>
-			<tr> 
 				<td></td>
 				<td><input type="submit" name="Submit" value="Add"></td>
 			</tr>
@@ -39,13 +35,12 @@
 		$name = $_POST['name'];
 		$title = $_POST['title'];
 		$comment = $_POST['comment'];
-		$foto = $_POST['foto'];
 		
 		// include database connection file
 		include_once("../conf/config.php");
 				
 		// Insert comment data into table
-		$result = mysqli_query($mysqli, "INSERT INTO comments(name,title,comment,foto) VALUES('$name','$title','$comment','$foto')");
+		$result = mysqli_query($mysqli, "INSERT INTO comments(name,title,comment) VALUES('$name','$title','$comment')");
 		
 		// Show message when comment added
 		echo "Comment added successfully. <a href='index.php'>View Comments</a>";
