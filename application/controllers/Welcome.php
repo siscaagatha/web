@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('insert_model');
-		
+
 	}
 	public function index()
 	{
@@ -32,4 +32,12 @@ class Welcome extends CI_Controller {
 			redirect(base_url());
 		}
 	}
+
+	public function download() {
+		$data['data'] = $this->insert_model->getData();
+
+		$this->load->view('download', $data);
+	}
+
+
 }

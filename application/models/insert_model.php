@@ -12,5 +12,6 @@ function form_insert($tablename,$data){
 	$res = $this->db->insert($tablename, $data);
 	return $res;
 }
+
 }
 ?>

@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=devidev-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Teknologi Informasi ITS</title>
-	
-	<!-- [ FONT-AWESOME ICON ] 
+
+	<!-- [ FONT-AWESOME ICON ]
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="assets/library/font-awesome-4.3.0/css/font-awesome.min.css">
 
@@ -22,20 +22,20 @@
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/library/bootstrap/css/bootstrap-theme.min.css")?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/library/bootstrap/css/bootstrap.css")?>">
-        <!-- [ DEFAULT STYLESHEET ] 
+        <!-- [ DEFAULT STYLESHEET ]
         =========================================================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/style.css")?>">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/responsive.css")?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/color/sisca.css")?>">
-        
+
 </head>
 <body >
 <!--[ LOADERs ]
-================================================================================================================================-->	
+================================================================================================================================-->
 <div class="preloader">
     <div class="loader theme_background_color">
         <span></span>
-      
+
     </div>
 </div>
 <!-- [ /PRELOADER ]
@@ -44,7 +44,7 @@
 =============================================================================================================================-->
 <div class="wrapper">
   <!-- [NAV]
- ============================================================================================================================-->    
+ ============================================================================================================================-->
    <!-- Navigation
     ==========================================-->
     <nav  class=" nim-menu navbar navbar-default navbar-fixed-top">
@@ -73,6 +73,7 @@
              <li><a href="#seven" class="page-scroll">Profile of Graduates</a></li>
             <li><a href="#eight" class="page-scroll">Contact</a></li>
             <li><a href="<?php echo base_url("index.php/Welcome/feedback")?>" >Feedback</a></li>
+						<li><a href="<?php echo base_url("index.php/Chart")?>" >Report</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -80,10 +81,10 @@
 
 
    <!-- [/NAV]
- ============================================================================================================================--> 
-    
+ ============================================================================================================================-->
+
    <!-- [/MAIN-HEADING]
- ============================================================================================================================--> 
+ ============================================================================================================================-->
    <section class="main-heading" id="home">
        <div class="overlay">
            <div class="container">
@@ -98,14 +99,14 @@
       </div>
                </div>
            </div>
-       </div>  
-      
+       </div>
+
    </section>
-    
+
  <!-- [/MAIN-HEADING]
  ============================================================================================================================-->
- 
- 
+
+
  <!-- [ABOUT US]
  ============================================================================================================================-->
  <section class="aboutus white-background black" id="one">
@@ -113,13 +114,13 @@
          <div class="row">
              <div class="col-md-12 text-center black">
                  <h3 class="title">ABOUT <span class="themecolor">US</span></h3>
-            <p class="a-slog">Departemen Teknologi Informasi adalah Departemen Terbaru di Institut Teknologi Sepuluh Nopember Surabaya. Selesksi Masuk Tahun Akademik 2018/ 2019 </p> 
+            <p class="a-slog">Departemen Teknologi Informasi adalah Departemen Terbaru di Institut Teknologi Sepuluh Nopember Surabaya. Selesksi Masuk Tahun Akademik 2018/ 2019 </p>
              </div>
          </div>
          <div class="gap">
-             
+
          </div>
-         
+
          <div class="row about-box">
           <div class="col-sm-4 text-center">
             <div class="margin-bottom">
@@ -145,13 +146,13 @@
         </div> <!-- /row -->
      </div>
  </section>
- 
- 
+
+
  <!-- [/ABOUTUS]
  ============================================================================================================================-->
- 
- 
- 
+
+
+
  <!-- [FACILITIES]
  ============================================================================================================================-->
      <section class="recent-works text-center" id="two">
@@ -160,9 +161,9 @@
           <div class="col-md-12">
               <h3 class="title">Our <span class="themecolor">Facilities</span></h3>
             <p class="a-slog">Beberapa fasilitas yang dimiliki Departemen Teknologi Informasi</p>
-          </div> 
+          </div>
         </div>
-          
+
           <div class="gap"></div>
 
         <div class="row">
@@ -215,11 +216,11 @@
       </div> <!-- /container -->
     </section>
     <!-- / Portfolio -->
- 
- 
+
+
  <!-- [/OUR-RECENT WORKS]
  ============================================================================================================================-->
- 
+
   <!-- [OUR TEAM]
  ============================================================================================================================-->
   <section class="our-team white-background black" id="three">
@@ -228,61 +229,61 @@
           <div class="col-md-12">
               <h3 class="title">Job <span class="themecolor">Opportunity</span></h3>
             <p class="a-slog">Berikut adalah jenis-jenis peluang kerja dari Departemen Teknologi Informasi</p>
-          </div> 
+          </div>
         </div>
           <div class="row text-center">
           <div class="col-sm-4" style="margin-top: 5%">
              <i class="fa fa-cloud" style="font-size:72px"></i>
             <h4>Cloud and Distributed Computing</h4>
             <h5>Komputasi Awan dan Komputasi Terdistribusi</h5>
-            
+
           </div> <!-- team-member -->
 
           <div class="col-sm-4" style="margin-top: 5%">
             <i class="fa fa-code" style="font-size:72px"></i>
             <h4>Web Architecture and Development Framework</h4>
             <h5>Arsitektur Web dan Pengembangan Framework</h5>
-            
+
           </div> <!-- team-member -->
 
           <div class="col-sm-4" style="margin-top: 5%">
             <i class="fa fa-laptop" style="font-size:72px"></i>
             <h4>Middleware and Integration Software</h4>
             <h5>Integrasi Perangkat Lunak dan Middleware</h5>
-            
+
           </div> <!-- team-member -->
 
           <div class="col-sm-4" style="margin-top: 5%">
            <i class="fa fa-desktop" style="font-size:72px"></i>
             <h4>User Interface Design</h4>
             <h5>Rancangan Antarmuka Pengguna</h5>
-            
+
           </div> <!-- team-member -->
 
           <div class="col-sm-4" style="margin-top: 5%">
             <i class="fa fa-lock" style="font-size:72px"></i>
             <h4>Network and Information Security</h4>
             <h5>Keamanan Informasi dan Jaringan</h5>
-            
+
           </div> <!-- team-member -->
 
           <div class="col-sm-4" style="margin-top: 5%">
             <i class="fa fa-database" style="font-size:72px"></i>
             <h4>Storage Systems and Management</h4>
             <h5>Manajemen Penyimpanan Data</h5>
-            
+
           </div> <!-- team-member -->
 
 
         </div> <!-- end row -->
-          
+
       </div>
   </section>
- 
+
  <!-- [/OUR TEAM]
  ============================================================================================================================-->
 
- 
+
  <!-- [FACILITIES]
  ============================================================================================================================-->
      <section class="recent-works text-center" id="three1">
@@ -291,17 +292,17 @@
           <div class="col-md-12">
               <h3 class="title">Our <span class="themecolor">VISION & MISSION</span></h3>
             <p class="a-slog">Berikut adalah visi dan misi dari Departemen Teknologi Informasi</p>
-          </div> 
+          </div>
         </div>
-          
+
           <div class="gap"></div>
 
         <div class="row">
           <div class="col-sm-6 port-item margin-bottom">
             <div class="item-img-wrap">
-              
+
               <div class="item-img-overlay">
-               
+
                   <span></span>
                 </a>
               </div>
@@ -315,7 +316,7 @@
           <div class="col-sm-6 port-item margin-bottom">
             <div class="item-img-wrap">
               <div class="item-img-overlay">
-               
+
                   <span></span>
                 </a>
               </div>
@@ -333,12 +334,12 @@
       </div> <!-- /container -->
     </section>
     <!-- / Portfolio -->
- 
- 
+
+
  <!-- [/OUR-RECENT WORKS]
  ============================================================================================================================-->
- 
- 
+
+
  <!-- [INSPIRATION]
  ============================================================================================================================-->
  <section class="aboutus white-background black" id="four">
@@ -349,9 +350,9 @@
              </div>
          </div>
          <div class="gap">
-             
+
          </div>
-         
+
          <div class="row about-box">
           <div class="col-sm-3 text-center">
             <div class="margin-bottom">
@@ -374,27 +375,27 @@
             </div> <!-- / margin -->
           </div><!-- /col -->
         </div> <!-- /row -->
-         
-         
-         
+
+
+
      </div>
  </section>
- 
+
  <!-- [/INSPIRATION]
- ============================================================================================================================--> 
- 
- 
- 
+ ============================================================================================================================-->
+
+
+
  <!-- [TESTIMONIAL]
  ============================================================================================================================-->
  <section class="client-testimonial text-center white" id="six">
-  
+
             <div class="container">
                 <div class="row">
                 <div class="col-md-12">
-                    <h3 class="title">Apa Kata <span class="themecolor">Mereka ?</span></h3>            
-          </div> 
-                
+                    <h3 class="title">Apa Kata <span class="themecolor">Mereka ?</span></h3>
+          </div>
+
                     <div class="col-md-8 col-md-offset-2 grey">
                         <div id="testimonial" class="owl-carousel owl-theme">
 
@@ -441,18 +442,18 @@
                     </div>
                 </div>
             </div>
-        
-     
-     
- </section> 
- 
+
+
+
+ </section>
+
  <!-- [/TESTIMONIAL]
  ============================================================================================================================-->
- 
+
  <!-- [/SERVICES]
  ============================================================================================================================-->
- 
- 
+
+
  <section class="services white-background black" id="seven">
       <div class="container">
         <div class="row text-center">
@@ -492,7 +493,7 @@
                 <p>Analis Keamanan Aplikasi</p>
               </div> <!-- /nim-service-detail -->
             </div> <!-- /nim-service margin-bottom -->
-          </div> <!-- /col -->       
+          </div> <!-- /col -->
         </div> <!-- end row -->
 
         <div class="row">
@@ -516,23 +517,23 @@
             </div> <!-- /nim-service margin-bottom -->
           </div> <!-- /col -->
 
-          
+
         </div> <!-- end row -->
 
       </div>  <!-- container -->
     </section>
- 
- 
+
+
  <!-- [/SERVICES]
  ============================================================================================================================-->
- 
- 
+
+
  <!-- [CONTACT]
  ============================================================================================================================-->
  <!--sub-form-->
 <section class="sub-form text-center" id="eight">
   <div class="container">
-    
+
     <?php echo form_open('insert_ctrl'); ?>
     <div class="col-md-12">
         <h3 class="title">Subscribe to our <span class="themecolor"> Websites</span></h3>
@@ -541,77 +542,71 @@
     </div>
     <?php if (isset($message)) { ?>
     <CENTER><h3 style="color:green;">Data inserted successfully</h3></CENTER><br>
-    <?php } ?> 
+    <?php } ?>
     <div class="row">
         <div class="col-md-3 col-sm-3"></div>
       <div class="col-md-6 center-block col-sm-6 ">
-      <!-- <form id="mc-form" action="subscribe/register.php" method="POST"> -->
-           <div class="input-group">
+      <div class="input-group">
             <?php echo form_error('demail'); ?>
-            <!-- <?php #echo form_label('Email :'); ?> <?php #echo form_error('demail'); ?> -->
             <?php echo form_input(array('id' => 'demail', 'name' => 'demail', "placeholder"=> "Email Address", 'class' => 'form-control')); ?>
-           <!--  <input type="email" class="form-control" placeholder="Email Address" required id="mc-email" name="email"> -->
             <span class="input-group-btn">
-           <!--  <button type="submit" class="btn btn-default">SUBSCRIBE <i class="fa fa-envelope"></i> </button> -->
-           <!-- 'class' => 'form-control' -->
-           <!--  'class'=>"btn btn-default" -->
            <?php echo form_submit(array('id' => 'submit', 'value' => 'Subscribe','class'=>"btn btn-default")); ?>
             </span> </div>
         </div>
-            
+
             <?php echo form_close(); ?>
        <!--  </form> -->
 
- 
+
         </div>
       </div>
     </div>
   </div>
 </section>
-<!--sub-form end--> 
+<!--sub-form end-->
 
 
- 
+
  <!-- [/CONTACT]
  ============================================================================================================================-->
- 
- 
+
+
  <!-- [FOOTER]
  ============================================================================================================================-->
- 
+
 <footer class="site-footer section-spacing text-center " id="eight">
-    
+
   <div class="container">
     <div class="row">
        <div class="col-md-4">
         <p class="footer-links"><a href="#">Terms of Use</a> <a href="#">Privacy Policy</a></p>
       </div>
       <div class="col-md-4"> <small>&copy; 2018 Information Technology. All rights reserved.</small></div>
-      <div class="col-md-4"> 
+      <div class="col-md-4">
         <!--social-->
-        
+
         <ul class="social">
           <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter "></i></a></li>
           <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
           <li><a href="https://www.youtube.com/" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
         </ul>
-        
-        <!--social end--> 
-        
+
+        <!--social end-->
+
       </div>
     </div>
   </div>
 </footer>
 
- 
- 
+
+
  <!-- [/FOOTER]
  ============================================================================================================================-->
- 
- 
- 
+
+
+
 </div>
- 
+
 
 <!-- [ /WRAPPER ]
 =============================================================================================================================-->
@@ -620,7 +615,7 @@
 	<script src="<?php echo base_url("assets/library/modernizr.custom.97074.js")?>"></script>
 	<script src="<?php echo base_url("assets/library/jquery-1.11.3.min.js")?>"></script>
         <script src="<?php echo base_url("assets/library/bootstrap/js/bootstrap.js")?>"></script>
-	<script type="text/javascript" src="<?php echo base_url("assets/js/jquery.easing.1.3.js")?>"></script>	
+	<script type="text/javascript" src="<?php echo base_url("assets/js/jquery.easing.1.3.js")?>"></script>
 	<!-- [ PLUGIN SCRIPT ] -->
         <script src="<?php echo base_url("assets/library/vegas/vegas.min.js")?>"></script>
 	<script src="<?php echo base_url("assets/js/plugins.js")?>"></script>
@@ -629,13 +624,13 @@
          <!-- [ COUNT SCRIPT ] -->
          <script src="<?php echo base_url("assets/js/fappear.js")?>"></script>
        <script src="<?php echo base_url("assets/js/jquery.countTo.js")?>"></script>
-	<!-- [ SLIDER SCRIPT ] -->  
+	<!-- [ SLIDER SCRIPT ] -->
         <script src="<?php echo base_url("assets/js/owl.carousel.js")?>"></script>
          <script src="<?php echo base_url("assets/js/jquery.magnific-popup.min.js")?>" type="text/javascript"></script>
         <script type="text/javascript" src="<?php echo base_url("assets/js/SmoothScroll.js")?>"></script>
-        
+
         <!-- [ COMMON SCRIPT ] -->
 	<script src="<?php echo base_url("assets/js/common.js")?>"></script>
-  
+
 </body>
 </html>

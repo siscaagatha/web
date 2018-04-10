@@ -59,6 +59,11 @@ function comment() {
 		}
 	}
 
+	public function download() {
+		$data['data'] = $this->insert_model->getData();
+
+		$this->load->view('download', $data);
+	}
 }
 
 ?>
